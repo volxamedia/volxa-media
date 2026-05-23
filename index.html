@@ -4,213 +4,427 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Volxa Media — HVAC Marketing Agency | Fresno, CA</title>
-<meta name="description" content="Volxa Media runs Meta and Google ad campaigns built specifically for HVAC companies in Fresno. More booked jobs. Less guesswork.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Volxa Media runs Meta and Google ad campaigns built specifically for HVAC companies in Fresno, CA. More leads. Less guesswork. No contracts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', sans-serif; background: #fff; color: #111; font-size: 16px; line-height: 1.6; }
+  :root {
+    --orange: #FF5500;
+    --orange-hover: #E04800;
+    --orange-light: #FFF3EE;
+    --black: #0D0D0D;
+    --text: #1A1A1A;
+    --text-muted: #666;
+    --text-light: #999;
+    --border: #E8E8E8;
+    --bg: #FFFFFF;
+    --bg-subtle: #F8F8F8;
+    --bg-card: #FFFFFF;
+  }
 
-  /* NAV */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
-    border-bottom: 1px solid #f0f0f0;
-    padding: 0 48px; height: 68px;
-    display: flex; align-items: center; justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; flex-shrink: 0;
+  }
+
   .logo-mark {
-    width: 34px; height: 34px; background: #111; border-radius: 7px;
+    width: 36px; height: 36px;
+    background: var(--orange);
+    border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    color: white; font-weight: 800; font-size: 16px;
+    font-weight: 900; font-size: 18px; color: #fff;
   }
-  .logo-text { font-weight: 700; font-size: 17px; color: #111; }
-  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-  .nav-links a { color: #555; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: #111; }
+
+  .logo-name { font-weight: 700; font-size: 17px; color: var(--black); letter-spacing: -0.3px; }
+
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+
+  .nav-links a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    padding: 8px 14px; border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-links a:hover { color: var(--text); background: var(--bg-subtle); }
+
   .nav-cta {
-    background: #111 !important; color: #fff !important;
-    padding: 10px 20px; border-radius: 8px;
-    font-weight: 600 !important; font-size: 14px !important;
+    background: var(--orange) !important; color: #fff !important;
+    font-weight: 600 !important; padding: 9px 18px !important;
+    border-radius: 8px !important; transition: background 0.15s !important;
   }
-  .nav-cta:hover { background: #333 !important; }
+  .nav-cta:hover { background: var(--orange-hover) !important; }
 
-  /* HERO */
-  .hero { padding: 140px 48px 100px; max-width: 1100px; margin: 0 auto; }
-  .hero-badge {
+  /* ── HERO */
+  .hero {
+    padding: 148px 48px 96px;
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
-    background: #f5f5f5; border: 1px solid #e8e8e8;
-    padding: 6px 14px; border-radius: 100px;
-    font-size: 13px; font-weight: 500; color: #444;
-    margin-bottom: 32px;
+    background: var(--orange-light); color: var(--orange);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 28px;
   }
-  .hero-badge-dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; }
-  .hero-title { font-size: 72px; font-weight: 800; line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; color: #111; }
-  .hero-title .blue { color: #6b8cff; }
-  .hero-desc { font-size: 18px; color: #555; max-width: 580px; line-height: 1.7; margin-bottom: 40px; }
-  .hero-buttons { display: flex; gap: 14px; }
-  .btn-dark {
-    background: #111; color: #fff; padding: 14px 28px;
-    border-radius: 8px; font-weight: 600; font-size: 15px;
-    text-decoration: none; transition: background 0.2s; border: none; cursor: pointer;
+  .hero-eyebrow::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--orange); border-radius: 50%;
+    animation: blink 2s infinite;
   }
-  .btn-dark:hover { background: #333; }
-  .btn-outline {
-    background: transparent; color: #111; padding: 14px 28px;
-    border-radius: 8px; font-weight: 600; font-size: 15px;
-    text-decoration: none; transition: all 0.2s;
-    border: 1.5px solid #ddd; cursor: pointer;
-  }
-  .btn-outline:hover { border-color: #999; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
 
-  /* STATS BAR */
-  .stats-bar {
-    background: #f9f9f9; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;
-    padding: 28px 48px;
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    max-width: 100%; text-align: center;
+  .hero h1 {
+    font-size: clamp(44px, 7vw, 78px);
+    font-weight: 900; line-height: 1.06;
+    letter-spacing: -2.5px; color: var(--black);
+    margin-bottom: 24px;
   }
-  .stat-item { padding: 0 20px; border-right: 1px solid #eee; }
-  .stat-item:last-child { border-right: none; }
-  .stat-title { font-weight: 700; font-size: 15px; color: #111; margin-bottom: 4px; }
-  .stat-desc { font-size: 13px; color: #888; }
+  .hero h1 .accent { color: var(--orange); }
 
-  /* SECTIONS */
-  .section { padding: 80px 48px; max-width: 1100px; margin: 0 auto; }
-  .section-title { font-size: 40px; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; color: #111; }
-  .section-desc { font-size: 16px; color: #666; max-width: 520px; line-height: 1.7; margin-bottom: 48px; }
+  .hero-sub {
+    font-size: 19px; color: var(--text-muted);
+    line-height: 1.65; max-width: 540px;
+    margin: 0 auto 40px;
+  }
 
-  /* SERVICES GRID */
+  .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 10px;
+    font-weight: 700; font-size: 15px;
+    text-decoration: none; transition: all 0.15s;
+    cursor: pointer; border: none; font-family: inherit;
+  }
+  .btn-orange {
+    background: var(--orange); color: #fff;
+    box-shadow: 0 2px 16px rgba(255,85,0,.2);
+  }
+  .btn-orange:hover { background: var(--orange-hover); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(255,85,0,.3); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
+  .btn-ghost:hover { border-color: #bbb; background: var(--bg-subtle); }
+
+  /* ── STATS BAR */
+  .stats-bar { background: var(--black); }
+
+  .stats-bar-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4,1fr);
+    border-left: 1px solid rgba(255,255,255,.07);
+  }
+
+  .stat-item {
+    padding: 28px 32px;
+    border-right: 1px solid rgba(255,255,255,.07);
+    border-top: 1px solid rgba(255,255,255,.07);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .stat-icon { font-size: 24px; flex-shrink: 0; }
+  .stat-label { font-size: 15px; font-weight: 700; color: #fff; line-height: 1.3; }
+  .stat-sub { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 2px; }
+
+  /* ── SHARED SECTION */
+  .section { padding: 100px 48px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--orange); margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(30px,4vw,46px); font-weight: 900;
+    letter-spacing: -1.5px; line-height: 1.1;
+    color: var(--black); margin-bottom: 16px;
+  }
+  .section-desc { font-size: 17px; color: var(--text-muted); max-width: 520px; line-height: 1.7; }
+
+  /* ── SERVICES */
+  .services-section { background: var(--bg-subtle); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; gap: 32px; flex-wrap: wrap; }
+
   .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
   .service-card {
-    background: #f9f9f9; border: 1px solid #f0f0f0;
-    border-radius: 12px; padding: 32px;
+    background: #fff; border: 1.5px solid var(--border);
+    border-radius: 16px; padding: 40px;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
   }
-  .service-icon {
-    width: 44px; height: 44px; border-radius: 10px;
+  .service-card:hover { border-color: var(--orange); box-shadow: 0 8px 32px rgba(255,85,0,.07); transform: translateY(-2px); }
+
+  .service-platform {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--orange-light); color: var(--orange);
+    font-size: 12px; font-weight: 700; letter-spacing: .5px;
+    text-transform: uppercase; padding: 5px 12px;
+    border-radius: 100px; margin-bottom: 20px;
+  }
+
+  .service-card h3 { font-size: 22px; font-weight: 800; letter-spacing: -.5px; color: var(--black); margin-bottom: 12px; }
+  .service-card > p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
+
+  .service-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .service-features li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; color: var(--text); }
+  .service-features li::before {
+    content: '';
+    width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px;
+    background: var(--orange);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9' cy='9' r='9' fill='%23FF5500'/%3E%3Cpath d='M5 9l3 3 5-5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: cover;
+  }
+
+  /* ── HOW IT WORKS */
+  .how-section { background: #fff; }
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 40px; margin-top: 60px; position: relative;
+  }
+  .steps-grid::before {
+    content: ''; position: absolute;
+    top: 27px; left: calc(16.66% + 28px); right: calc(16.66% + 28px);
+    height: 1.5px; z-index: 0;
+    background: linear-gradient(90deg, var(--border) 0%, var(--orange) 50%, var(--border) 100%);
+  }
+  .step { position: relative; z-index: 1; }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #fff; border: 2px solid var(--border);
     display: flex; align-items: center; justify-content: center;
-    font-size: 22px; margin-bottom: 16px; background: #fff;
-    border: 1px solid #eee;
+    font-size: 20px; font-weight: 900; color: var(--orange);
+    margin-bottom: 24px;
+    transition: background .2s, border-color .2s, color .2s;
   }
-  .service-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-  .service-card p { font-size: 14px; color: #666; line-height: 1.6; }
-  .service-features { list-style: none; margin-top: 16px; }
-  .service-features li { font-size: 13px; color: #555; padding: 4px 0; display: flex; align-items: center; gap: 8px; }
-  .service-features li::before { content: '✓'; color: #111; font-weight: 700; font-size: 12px; }
+  .step:hover .step-num { background: var(--orange); border-color: var(--orange); color: #fff; }
+  .step-badge {
+    display: inline-block; background: var(--orange-light); color: var(--orange);
+    font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 100px; margin-bottom: 12px;
+  }
+  .step h3 { font-size: 18px; font-weight: 800; letter-spacing: -.3px; color: var(--black); margin-bottom: 10px; }
+  .step p { font-size: 15px; color: var(--text-muted); line-height: 1.65; }
 
-  /* HOW IT WORKS */
-  .how-section { background: #f9f9f9; padding: 80px 0; }
-  .how-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
-  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 48px; }
-  .step-num { font-size: 48px; font-weight: 800; color: #e8e8e8; margin-bottom: 16px; letter-spacing: -2px; }
-  .step-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-  .step-desc { font-size: 14px; color: #666; line-height: 1.6; }
-  .steps-divider { height: 1px; background: #e8e8e8; margin-top: 0; position: relative; top: 48px; grid-column: 1 / -1; display: none; }
-
-  /* PRICING */
-  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  /* ── PRICING */
+  .pricing-section { background: var(--bg-subtle); }
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 24px; margin-top: 60px; align-items: start;
+  }
   .pricing-card {
-    border: 1.5px solid #e8e8e8; border-radius: 14px; padding: 32px;
-    position: relative; transition: transform 0.2s;
+    background: #fff; border: 1.5px solid var(--border);
+    border-radius: 16px; padding: 36px; position: relative;
+    transition: transform .2s, box-shadow .2s;
   }
-  .pricing-card:hover { transform: translateY(-3px); }
-  .pricing-card.featured { background: #111; border-color: #111; color: #fff; }
-  .featured-tag {
-    background: #fff; color: #111; font-size: 11px; font-weight: 700;
-    padding: 4px 12px; border-radius: 100px; display: inline-block;
-    margin-bottom: 16px; letter-spacing: 0.5px;
+  .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.07); }
+  .pricing-card.featured {
+    border-color: var(--orange);
+    box-shadow: 0 8px 32px rgba(255,85,0,.12);
+    transform: translateY(-6px);
   }
-  .pricing-name { font-size: 14px; font-weight: 600; color: #888; margin-bottom: 8px; }
-  .pricing-card.featured .pricing-name { color: #aaa; }
-  .pricing-price { font-size: 52px; font-weight: 800; letter-spacing: -2px; margin-bottom: 4px; }
-  .pricing-period { font-size: 14px; color: #888; margin-bottom: 8px; }
-  .pricing-card.featured .pricing-period { color: #aaa; }
-  .pricing-tagline { font-size: 14px; color: #555; margin-bottom: 24px; line-height: 1.5; }
-  .pricing-card.featured .pricing-tagline { color: #ccc; }
-  .pricing-features { list-style: none; margin-bottom: 28px; }
-  .pricing-features li { font-size: 14px; color: #444; padding: 7px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 10px; }
-  .pricing-card.featured .pricing-features li { color: #ddd; border-bottom-color: #333; }
-  .pricing-features li::before { content: '✓'; font-weight: 700; font-size: 12px; color: #111; flex-shrink: 0; }
-  .pricing-card.featured .pricing-features li::before { color: #fff; }
-  .pricing-btn {
-    display: block; width: 100%; padding: 13px; border-radius: 8px;
-    font-weight: 600; font-size: 15px; text-align: center;
-    cursor: pointer; transition: all 0.2s; text-decoration: none; border: none;
-  }
-  .pricing-btn-dark { background: #111; color: #fff; }
-  .pricing-btn-dark:hover { background: #333; }
-  .pricing-btn-white { background: #fff; color: #111; }
-  .pricing-btn-white:hover { background: #f5f5f5; }
-  .pricing-btn-outline { background: transparent; border: 1.5px solid #ddd; color: #111; }
-  .pricing-btn-outline:hover { border-color: #999; }
+  .pricing-card.featured:hover { transform: translateY(-10px); }
 
-  /* CONTACT */
-  .contact-section { padding: 80px 48px; max-width: 1100px; margin: 0 auto; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
-  .contact-info h2 { font-size: 40px; font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; }
-  .contact-info p { font-size: 16px; color: #555; line-height: 1.7; margin-bottom: 32px; }
-  .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 15px; color: #444; }
-  .contact-detail-icon {
-    width: 38px; height: 38px; background: #f5f5f5; border: 1px solid #eee;
-    border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
+  .featured-pill {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--orange); color: #fff;
+    font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase;
+    padding: 4px 16px; border-radius: 100px; white-space: nowrap;
   }
-  .contact-form { background: #f9f9f9; border: 1px solid #f0f0f0; border-radius: 14px; padding: 36px; }
+
+  .plan-name { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+
+  .plan-price { display: flex; align-items: flex-start; gap: 3px; margin-bottom: 4px; }
+  .plan-price .dollar { font-size: 20px; font-weight: 700; color: var(--black); margin-top: 10px; }
+  .plan-price .amount { font-size: 56px; font-weight: 900; letter-spacing: -2px; color: var(--black); line-height: 1; }
+
+  .plan-period { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+  .plan-divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+  .plan-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .plan-features li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; color: var(--text); line-height: 1.4; }
+  .plan-features li .ck { color: var(--orange); font-weight: 700; flex-shrink: 0; }
+
+  .plan-btn {
+    display: block; width: 100%; padding: 14px; border-radius: 10px;
+    font-weight: 700; font-size: 15px; text-align: center;
+    text-decoration: none; cursor: pointer; border: none;
+    transition: all .15s; font-family: inherit;
+  }
+  .plan-btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
+  .plan-btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+  .plan-btn-filled { background: var(--orange); color: #fff; box-shadow: 0 2px 12px rgba(255,85,0,.2); }
+  .plan-btn-filled:hover { background: var(--orange-hover); }
+
+  .no-contracts { text-align: center; margin-top: 32px; font-size: 14px; color: var(--text-light); }
+  .no-contracts strong { color: var(--text-muted); }
+
+  /* ── CONTACT */
+  .contact-section { background: #fff; }
+
+  .contact-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 80px; margin-top: 60px; align-items: start; }
+
+  .contact-left h3 {
+    font-size: clamp(26px,3vw,38px); font-weight: 900;
+    letter-spacing: -1px; color: var(--black);
+    line-height: 1.15; margin-bottom: 16px;
+  }
+  .contact-left p { font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 36px; }
+
+  .contact-detail { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; font-size: 15px; color: var(--text); }
+  .contact-detail-icon {
+    width: 40px; height: 40px; background: var(--bg-subtle);
+    border: 1px solid var(--border); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; flex-shrink: 0;
+  }
+
+  .contact-form { background: var(--bg-subtle); border: 1.5px solid var(--border); border-radius: 16px; padding: 40px; }
+  .form-title { font-size: 19px; font-weight: 800; letter-spacing: -.3px; color: var(--black); margin-bottom: 24px; }
+
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .form-group { margin-bottom: 18px; }
-  .form-group label { display: block; font-size: 13px; font-weight: 600; color: #444; margin-bottom: 7px; }
-  .form-group input, .form-group select {
-    width: 100%; background: #fff; border: 1.5px solid #e8e8e8;
-    border-radius: 8px; padding: 11px 14px; color: #111;
-    font-family: 'Inter', sans-serif; font-size: 14px;
-    transition: border-color 0.2s; outline: none;
-  }
-  .form-group input:focus, .form-group select:focus { border-color: #111; }
-  .form-group select option { background: #fff; }
-  .form-submit {
-    width: 100%; padding: 14px; background: #111; color: #fff;
-    border: none; border-radius: 8px; font-family: 'Inter', sans-serif;
-    font-weight: 700; font-size: 15px; cursor: pointer; transition: background 0.2s; margin-top: 4px;
-  }
-  .form-submit:hover { background: #333; }
-  .form-note { text-align: center; font-size: 12px; color: #aaa; margin-top: 10px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 7px; }
 
-  /* FOOTER */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; background: #fff; border: 1.5px solid var(--border);
+    border-radius: 8px; padding: 11px 14px;
+    color: var(--text); font-family: inherit; font-size: 15px;
+    transition: border-color .15s, box-shadow .15s; outline: none;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255,85,0,.08);
+  }
+  .form-group textarea { resize: vertical; min-height: 88px; }
+
+  .form-submit {
+    width: 100%; padding: 15px;
+    background: var(--orange); color: #fff;
+    border: none; border-radius: 10px;
+    font-family: inherit; font-weight: 700; font-size: 16px;
+    cursor: pointer; transition: all .15s;
+    box-shadow: 0 2px 14px rgba(255,85,0,.2);
+    margin-top: 4px;
+  }
+  .form-submit:hover { background: var(--orange-hover); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(255,85,0,.28); }
+
+  .form-note { text-align: center; font-size: 12px; color: var(--text-light); margin-top: 12px; }
+
+  /* ── FOOTER */
   footer {
-    background: #111; color: #fff; padding: 40px 48px;
+    background: var(--black); color: rgba(255,255,255,.55);
+    padding: 40px 48px;
     display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
   }
   .footer-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .footer-logo-mark { width: 30px; height: 30px; background: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #111; font-weight: 800; font-size: 14px; }
-  .footer-logo-text { font-weight: 700; font-size: 16px; color: #fff; }
-  .footer-tagline { font-size: 14px; color: #666; }
-  .footer-copy { font-size: 13px; color: #555; }
+  .footer-logo-name { font-weight: 700; font-size: 16px; color: #fff; }
+  .footer-copy { font-size: 13px; }
+  .footer-links { display: flex; gap: 20px; list-style: none; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,.45); text-decoration: none; transition: color .15s; }
+  .footer-links a:hover { color: #fff; }
+
+  /* ── MOBILE MENU */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+
+  .mobile-menu {
+    display: none; position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: #fff; border-bottom: 1px solid var(--border);
+    padding: 16px 24px 24px; z-index: 99;
+    flex-direction: column; gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 16px; font-weight: 500;
+    padding: 13px 0; border-bottom: 1px solid var(--border);
+    transition: color .15s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--orange); }
+  .mobile-menu .mobile-cta {
+    margin-top: 12px; display: block;
+    background: var(--orange); color: #fff !important;
+    text-align: center; padding: 14px !important;
+    border-radius: 10px; font-weight: 700 !important;
+    border-bottom: none !important;
+  }
+
+  /* ── RESPONSIVE */
+  @media (max-width: 960px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+    .pricing-card.featured { transform: none; }
+    .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+    .steps-grid::before { display: none; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .stats-bar-inner { grid-template-columns: repeat(2,1fr); }
+  }
 
   @media (max-width: 768px) {
-    nav { padding: 0 20px; }
+    nav { padding: 0 24px; }
     .nav-links { display: none; }
-    .hero { padding: 100px 20px 60px; }
-    .hero-title { font-size: 44px; letter-spacing: -1px; }
-    .stats-bar { grid-template-columns: 1fr 1fr; padding: 20px; gap: 20px; }
-    .stat-item { border-right: none; border-bottom: 1px solid #eee; padding-bottom: 16px; }
-    .section { padding: 60px 20px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .steps-grid { grid-template-columns: 1fr; gap: 32px; }
-    .pricing-grid { grid-template-columns: 1fr; }
-    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hamburger { display: flex; }
+    .hero { padding: 108px 24px 72px; }
+    .section { padding: 72px 24px; }
     .form-row { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
-    .how-inner { padding: 0 20px; }
-    .contact-section { padding: 60px 20px; }
+    footer { flex-direction: column; text-align: center; padding: 36px 24px; }
+    .stats-bar-inner { grid-template-columns: repeat(2,1fr); }
+    .stat-item { padding: 20px 16px; }
+    .services-header { margin-bottom: 40px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 40px; letter-spacing: -1.5px; }
+    .stats-bar-inner { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="#" class="logo">
     <div class="logo-mark">V</div>
-    <span class="logo-text">Volxa Media</span>
+    <span class="logo-name">Volxa Media</span>
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -218,201 +432,256 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#contact" class="nav-cta">Get More Leads</a></li>
   </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">
-    <div class="hero-badge-dot"></div>
-    Serving HVAC Companies in Fresno, CA
-  </div>
-  <h1 class="hero-title">More HVAC Leads.<br><span class="blue">Less Guesswork.</span></h1>
-  <p class="hero-desc">Volxa Media runs Meta and Google ad campaigns built specifically for HVAC companies in Fresno. We handle your ads so you can focus on the jobs — not the marketing.</p>
-  <div class="hero-buttons">
-    <a href="#contact" class="btn-dark">Book a Free Strategy Call</a>
-    <a href="#pricing" class="btn-outline">View Pricing</a>
-  </div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#contact" class="mobile-cta" onclick="closeMenu()">Get More Leads →</a>
 </div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">HVAC Marketing · Fresno, CA</div>
+  <h1>More HVAC Leads.<br><span class="accent">Less Guesswork.</span></h1>
+  <p class="hero-sub">Volxa Media runs paid ad campaigns built exclusively for HVAC companies in Fresno. We handle the ads — you handle the jobs.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn btn-orange">Book a Free Strategy Call →</a>
+    <a href="#pricing" class="btn btn-ghost">See Pricing</a>
+  </div>
+</section>
 
 <!-- STATS BAR -->
 <div class="stats-bar">
-  <div class="stat-item">
-    <div class="stat-title">Meta &amp; Google</div>
-    <div class="stat-desc">Certified Ad Platforms</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-title">Fresno-Only</div>
-    <div class="stat-desc">Hyper-Local Focus</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-title">No Contracts</div>
-    <div class="stat-desc">Month-to-Month</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-title">100% Managed</div>
-    <div class="stat-desc">We Handle Everything</div>
+  <div class="stats-bar-inner">
+    <div class="stat-item">
+      <div class="stat-icon">📘</div>
+      <div>
+        <div class="stat-label">Meta &amp; Google</div>
+        <div class="stat-sub">Full platform coverage</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">📍</div>
+      <div>
+        <div class="stat-label">Fresno-Only</div>
+        <div class="stat-sub">Hyper-local targeting</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">🤝</div>
+      <div>
+        <div class="stat-label">No Contracts</div>
+        <div class="stat-sub">Cancel any time</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">⚙️</div>
+      <div>
+        <div class="stat-label">100% Managed</div>
+        <div class="stat-sub">We handle everything</div>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- SERVICES -->
-<div class="section" id="services">
-  <h2 class="section-title">Fully Managed Ad Campaigns</h2>
-  <p class="section-desc">We specialize in two platforms that drive real results for HVAC businesses — Meta and Google. No fluff, no wasted budget, just qualified leads in your area.</p>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">📘</div>
-      <h3>Meta Ads</h3>
-      <p>Facebook and Instagram campaigns targeted at homeowners in Fresno who need HVAC service. We create the ads, set the targeting, and optimize weekly to lower your cost per lead.</p>
-      <ul class="service-features">
-        <li>Custom audience targeting</li>
-        <li>Ad creative &amp; copywriting</li>
-        <li>Lead form campaigns</li>
-        <li>Weekly optimization</li>
-      </ul>
+<div class="section services-section" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="section-tag">What We Do</div>
+        <h2 class="section-title">Two Channels.<br>One Goal: More Jobs.</h2>
+      </div>
+      <p class="section-desc">We specialize in two platforms that drive real results for HVAC businesses. No fluff — just campaigns that bring in calls from Fresno homeowners.</p>
     </div>
-    <div class="service-card">
-      <div class="service-icon">🔍</div>
-      <h3>Google Ads</h3>
-      <p>Search campaigns that show up when Fresno homeowners type "AC repair near me" or "HVAC service Fresno." We capture high-intent buyers at the exact moment they need you.</p>
-      <ul class="service-features">
-        <li>Search &amp; Local Service Ads</li>
-        <li>Keyword research &amp; bidding</li>
-        <li>Call tracking setup</li>
-        <li>Conversion optimization</li>
-      </ul>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-platform">📘 Meta Ads</div>
+        <h3>Facebook &amp; Instagram Ads</h3>
+        <p>Target Fresno homeowners before they even start searching. We build campaigns that put your HVAC business in front of people the moment their AC goes out or their heater stops working.</p>
+        <ul class="service-features">
+          <li>Fresno geo-targeted audience builds</li>
+          <li>Scroll-stopping ad creative &amp; copy</li>
+          <li>Lead form campaigns for instant inquiries</li>
+          <li>Retargeting visitors who didn't convert</li>
+          <li>Weekly bid &amp; budget optimization</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-platform">🔍 Google Ads</div>
+        <h3>Google Search &amp; Local Ads</h3>
+        <p>Show up #1 when someone in Fresno searches "HVAC repair near me" or "AC installation Fresno." We manage your keywords, bids, and ad copy to maximize calls at the lowest cost per lead.</p>
+        <ul class="service-features">
+          <li>High-intent HVAC keyword targeting</li>
+          <li>Google Local Service Ads setup</li>
+          <li>Negative keyword management</li>
+          <li>Call tracking &amp; conversion setup</li>
+          <li>Monthly performance reporting</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- HOW IT WORKS -->
-<div class="how-section">
-  <div class="how-inner">
-    <h2 class="section-title">Up and Running in Days</h2>
-    <p class="section-desc">No long onboarding. We move fast so you start getting leads fast.</p>
+<div class="section how-section" id="how">
+  <div class="container">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">Up and Running in Days,<br>Not Months.</h2>
     <div class="steps-grid">
-      <div>
-        <div class="step-num">01</div>
-        <div class="step-title">Strategy Call</div>
-        <p class="step-desc">We learn about your business, service area, and goals. 30 minutes — no obligation.</p>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-badge">Week 1</div>
+        <h3>Strategy Call</h3>
+        <p>We learn your business — service area, ideal customer, current challenges. Then we map out exactly which channels and targeting will work best for you in Fresno.</p>
       </div>
-      <div>
-        <div class="step-num">02</div>
-        <div class="step-title">Campaign Setup</div>
-        <p class="step-desc">We build your ads, targeting, and tracking from scratch. Ready to launch within 48 hours.</p>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-badge">Week 1–2</div>
+        <h3>Campaign Setup</h3>
+        <p>We build your ads, write all the copy, design the creatives, and configure your targeting. You review and approve before anything goes live.</p>
       </div>
-      <div>
-        <div class="step-num">03</div>
-        <div class="step-title">Leads Start Coming In</div>
-        <p class="step-desc">Your campaigns go live and we optimize weekly. You get reports. You get calls.</p>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-badge">Week 2+</div>
+        <h3>Leads Start Coming In</h3>
+        <p>Campaigns launch and leads start flowing. We optimize weekly, cut what isn't working, and scale what is — so your cost per lead drops over time.</p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- PRICING -->
-<div class="section" id="pricing">
-  <h2 class="section-title">Simple, Transparent Pricing</h2>
-  <p class="section-desc">No setup fees. No long-term contracts. Cancel anytime.</p>
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="pricing-name">Starter</div>
-      <div class="pricing-price">$750</div>
-      <div class="pricing-period">/mo</div>
-      <div class="pricing-tagline">Perfect for HVAC companies ready to test paid advertising.</div>
-      <ul class="pricing-features">
-        <li>Meta Ads (Facebook &amp; Instagram)</li>
-        <li>Ad creative &amp; copywriting</li>
-        <li>Monthly performance report</li>
-        <li>Dedicated account manager</li>
-        <li>Campaign setup &amp; launch</li>
-      </ul>
-      <a href="#contact" class="pricing-btn pricing-btn-dark">Get Started</a>
+<div class="section pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-tag">Pricing</div>
+    <h2 class="section-title">Simple, Flat-Rate Plans.</h2>
+    <p class="section-desc">No percentage of ad spend. No hidden fees. One flat monthly rate — you always know what you're paying.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">
+          <span class="dollar">$</span>
+          <span class="amount">750</span>
+        </div>
+        <div class="plan-period">per month</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="ck">✓</span> Meta Ads (Facebook &amp; Instagram)</li>
+          <li><span class="ck">✓</span> Ad creative &amp; copywriting</li>
+          <li><span class="ck">✓</span> Fresno geo-targeting setup</li>
+          <li><span class="ck">✓</span> Monthly performance report</li>
+          <li><span class="ck">✓</span> Dedicated account manager</li>
+        </ul>
+        <a href="#contact" class="plan-btn plan-btn-outline">Get Started</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="featured-pill">Most Popular</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-price">
+          <span class="dollar">$</span>
+          <span class="amount">1,200</span>
+        </div>
+        <div class="plan-period">per month</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="ck">✓</span> Meta + Google Ads</li>
+          <li><span class="ck">✓</span> Ad creative &amp; copywriting</li>
+          <li><span class="ck">✓</span> Weekly campaign optimization</li>
+          <li><span class="ck">✓</span> Monthly performance report</li>
+          <li><span class="ck">✓</span> Dedicated account manager</li>
+          <li><span class="ck">✓</span> A/B testing &amp; scaling</li>
+          <li><span class="ck">✓</span> Call tracking setup</li>
+        </ul>
+        <a href="#contact" class="plan-btn plan-btn-filled">Get Started</a>
+      </div>
+      <div class="pricing-card">
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">
+          <span class="dollar">$</span>
+          <span class="amount">2,000</span>
+        </div>
+        <div class="plan-period">per month</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="ck">✓</span> Everything in Growth</li>
+          <li><span class="ck">✓</span> Google Local Service Ads</li>
+          <li><span class="ck">✓</span> Landing page optimization</li>
+          <li><span class="ck">✓</span> Competitor analysis</li>
+          <li><span class="ck">✓</span> Priority support &amp; response</li>
+          <li><span class="ck">✓</span> Quarterly strategy review</li>
+        </ul>
+        <a href="#contact" class="plan-btn plan-btn-outline">Get Started</a>
+      </div>
     </div>
-    <div class="pricing-card featured">
-      <div class="featured-tag">Most Popular</div>
-      <div class="pricing-name">Growth</div>
-      <div class="pricing-price">$1,200</div>
-      <div class="pricing-period">/mo</div>
-      <div class="pricing-tagline">Our most popular plan — full coverage on Meta and Google.</div>
-      <ul class="pricing-features">
-        <li>Meta Ads + Google Ads</li>
-        <li>Weekly campaign optimization</li>
-        <li>Ad creative &amp; copywriting</li>
-        <li>Bi-weekly strategy calls</li>
-        <li>Monthly performance report</li>
-        <li>Dedicated account manager</li>
-      </ul>
-      <a href="#contact" class="pricing-btn pricing-btn-white">Get Started</a>
-    </div>
-    <div class="pricing-card">
-      <div class="pricing-name">Pro</div>
-      <div class="pricing-price">$2,000</div>
-      <div class="pricing-period">/mo</div>
-      <div class="pricing-tagline">For HVAC companies that want the full marketing engine.</div>
-      <ul class="pricing-features">
-        <li>Everything in Growth</li>
-        <li>Content creation (photos &amp; video)</li>
-        <li>Priority support (same-day response)</li>
-        <li>Competitor ad analysis</li>
-        <li>Landing page optimization</li>
-        <li>Quarterly strategy review</li>
-      </ul>
-      <a href="#contact" class="pricing-btn pricing-btn-dark">Get Started</a>
-    </div>
+    <p class="no-contracts">✓ No long-term contracts &nbsp;·&nbsp; ✓ No setup fees &nbsp;·&nbsp; <strong>Cancel any time</strong></p>
   </div>
 </div>
 
 <!-- CONTACT -->
-<div class="contact-section" id="contact">
-  <div class="contact-grid">
-    <div class="contact-info">
-      <h2>Ready to Get More Leads?</h2>
-      <p>Book a free 30-minute strategy call. We'll look at your current marketing, find the gaps, and tell you exactly how we'd get you more booked jobs in Fresno.</p>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">✉️</div>
-        mo@volxamedia.com
+<div class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-tag">Get Started</div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h3>Ready to Get<br>More HVAC Leads?</h3>
+        <p>Book a free 30-minute strategy call. We'll look at your market, find the gaps, and tell you exactly how we'd get you more booked jobs in Fresno.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <span>mo@volxamedia.com</span>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <span>Fresno, California</span>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">⚡</div>
+          <span>We respond within 1 business day</span>
+        </div>
       </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">📍</div>
-        Fresno, California
-      </div>
-    </div>
-    <div class="contact-form">
-      <form action="https://formsubmit.co/mo@volxamedia.com" method="POST">
-        <input type="hidden" name="_subject" value="New Lead — Volxa Media Website">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://volxamedia.com">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Your Name</label>
-            <input type="text" name="name" placeholder="John Smith" required>
+      <div class="contact-form">
+        <div class="form-title">Tell us about your business</div>
+        <form action="https://formsubmit.co/mo@volxamedia.com" method="POST">
+          <input type="hidden" name="_subject" value="New Lead from Volxa Media Website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://volxamedia.com">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="John Smith" required>
+            </div>
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" name="company" placeholder="Fresno HVAC Co." required>
+            </div>
           </div>
           <div class="form-group">
-            <label>Company Name</label>
-            <input type="text" name="company" placeholder="Fresno HVAC Co." required>
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="john@fresnoac.com" required>
           </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" name="email" placeholder="john@fresnoac.com" required>
-        </div>
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input type="tel" name="phone" placeholder="(559) 555-0100">
-        </div>
-        <div class="form-group">
-          <label>What plan are you interested in?</label>
-          <select name="plan">
-            <option value="">Select a plan...</option>
-            <option value="starter">Starter — $750/mo</option>
-            <option value="growth">Growth — $1,200/mo</option>
-            <option value="pro">Pro — $2,000/mo</option>
-            <option value="unsure">Not sure yet</option>
-          </select>
-        </div>
-        <button type="submit" class="form-submit">Book My Free Strategy Call</button>
-        <p class="form-note">No spam. We respond within 1 business day.</p>
-      </form>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="(559) 555-0100">
+          </div>
+          <div class="form-group">
+            <label>Which plan interests you?</label>
+            <select name="plan">
+              <option value="">Select a plan...</option>
+              <option value="starter">Starter — $750/mo</option>
+              <option value="growth">Growth — $1,200/mo</option>
+              <option value="pro">Pro — $2,000/mo</option>
+              <option value="unsure">Not sure yet</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">Book My Free Strategy Call →</button>
+          <p class="form-note">No spam. No pressure. Just a straight conversation about your business.</p>
+        </form>
+      </div>
     </div>
   </div>
 </div>
@@ -420,12 +689,26 @@
 <!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">
-    <div class="footer-logo-mark">V</div>
-    <span class="footer-logo-text">Volxa Media</span>
+    <div class="logo-mark">V</div>
+    <span class="footer-logo-name">Volxa Media</span>
   </a>
-  <span class="footer-tagline">Boosting HVAC Growth in Fresno, One Click at a Time</span>
-  <span class="footer-copy">© 2026 Volxa Media. All rights reserved.</span>
+  <p class="footer-copy">© 2026 Volxa Media · Fresno, CA · All rights reserved.</p>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </footer>
+
+<script>
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+  document.addEventListener('click', function(e) {
+    const m = document.getElementById('mobileMenu');
+    const b = document.querySelector('.hamburger');
+    if (!m.contains(e.target) && !b.contains(e.target)) m.classList.remove('open');
+  });
+</script>
 
 </body>
 </html>
