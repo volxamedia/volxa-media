@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useRef } from 'react'
 import { searchFoods } from '../data/foods'
 import { calculateHealthScore, calculateGoalFit, getHealthScoreColor } from '../utils/calculations'
+import { FoodScanner } from './FoodScanner'
 
 const MEALS = [
   { key: 'breakfast', label: 'Breakfast', icon: '🌅' },
@@ -207,6 +208,7 @@ export function FoodLog({ foodLog, onAdd, onRemove, profile, macroTotals }) {
   const [results, setResults] = useState([])
   const [selectedFood, setSelectedFood] = useState(null)
   const [showManual, setShowManual] = useState(false)
+  const [showScanner, setShowScanner] = useState(false)
   const [activeMeal, setActiveMeal] = useState('all')
   const searchTimeout = useRef(null)
 
@@ -300,8 +302,15 @@ export function FoodLog({ foodLog, onAdd, onRemove, profile, macroTotals }) {
 
       {/* Action buttons */}
       <div className="row mb-12" style={{ gap: 8 }}>
+        <button
+          className="btn btn-primary btn-sm flex-1"
+          onClick={() => setShowScanner(true)}
+          style={{ gap: 6 }}
+        >
+          📸 Scan Food
+        </button>
         <button className="btn btn-ghost btn-sm flex-1" onClick={() => setShowManual(true)}>
-          + Manual Entry
+          + Manual
         </button>
       </div>
 
@@ -375,6 +384,9 @@ export function FoodLog({ foodLog, onAdd, onRemove, profile, macroTotals }) {
       )}
       {showManual && (
         <ManualEntryModal onClose={() => setShowManual(false)} onAdd={onAdd} />
+      )}
+      {showScanner && (
+        <FoodScanner onClose={() => setShowScanner(false)} onAdd={onAdd} />
       )}
     </div>
   )
