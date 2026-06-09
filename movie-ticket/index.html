@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purchases — Obsession | Regal Fresno Riverpark 19 &amp; IMAX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #FF7A29;
+    --bg: #0a0a0c;
+    --screen: #1c1c1e;
+    --card: #2a2a2d;
+    --text: #f5f5f7;
+    --muted: #8e8e93;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: var(--bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    padding: 32px 16px;
+  }
+
+  /* Phone screen */
+  .screen {
+    width: 100%;
+    max-width: 390px;
+    background: var(--screen);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.04);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Status bar */
+  .status-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 22px 4px;
+    font-size: 15px; font-weight: 700;
+  }
+  .status-icons { display: flex; align-items: center; gap: 5px; }
+  .status-icons svg { display: block; }
+
+  /* Header */
+  .page-header { text-align: center; padding: 12px 20px 16px; }
+  .page-header h1 { font-size: 17px; font-weight: 700; }
+
+  /* Tabs */
+  .tabs {
+    display: flex; gap: 28px;
+    padding: 0 20px; border-bottom: 1px solid var(--border);
+  }
+  .tab {
+    font-size: 14px; font-weight: 600; color: var(--muted);
+    padding-bottom: 12px; border-bottom: 2px solid transparent;
+  }
+  .tab.active { color: var(--text); border-bottom-color: var(--orange); }
+
+  /* Content */
+  .content { padding: 20px; flex: 1; }
+
+  /* Ticket card */
+  .ticket-card {
+    background: var(--card);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .poster {
+    height: 210px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 70% 35%, rgba(255,90,40,.55) 0%, rgba(255,90,40,0) 38%),
+      linear-gradient(160deg, #2a0a0a 0%, #14070d 45%, #08080c 100%);
+  }
+  .poster::before {
+    content: '';
+    position: absolute; top: 38%; left: -15%; width: 130%; height: 5px;
+    background: linear-gradient(90deg, transparent, #ff3b1a 35%, #ffb02e 55%, transparent);
+    box-shadow: 0 0 36px 8px rgba(255,80,30,.55);
+    transform: rotate(-4deg);
+  }
+  .poster::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 80%, rgba(0,0,0,0) 0%, rgba(0,0,0,.65) 100%);
+  }
+
+  .ticket-info { padding: 18px 20px 14px; text-align: center; }
+  .ticket-info h2 {
+    font-size: 19px; font-weight: 800; letter-spacing: .2px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-bottom: 8px;
+  }
+  .rating-badge {
+    border: 1.5px solid var(--muted); color: var(--text);
+    font-size: 11px; font-weight: 700;
+    width: 20px; height: 20px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ticket-info .theater { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  .ticket-info .showtime {
+    font-size: 13px; color: var(--muted);
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .seat-pill {
+    display: inline-block;
+    border: 1.5px solid var(--orange);
+    color: var(--orange);
+    font-size: 14px; font-weight: 700; letter-spacing: 1px;
+    padding: 7px 22px; border-radius: 10px;
+  }
+
+  /* Perforation */
+  .perforation { position: relative; height: 0; margin: 18px 0; }
+  .perforation::before {
+    content: ''; position: absolute; left: 0; right: 0; top: -1px;
+    border-top: 2px dashed rgba(255,255,255,.16);
+  }
+  .notch {
+    position: absolute; top: -13px; width: 26px; height: 26px;
+    background: var(--screen); border-radius: 50%;
+  }
+  .notch.left { left: -13px; }
+  .notch.right { right: -13px; }
+
+  /* QR */
+  .qr-wrap { display: flex; justify-content: center; padding: 0 20px 18px; }
+  .qr-box {
+    background: #fff; border-radius: 14px; padding: 12px;
+    width: 200px; height: 200px;
+  }
+  .qr-box svg { display: block; width: 100%; height: 100%; }
+
+  .ticket-note {
+    text-align: center; font-size: 13px; line-height: 1.6;
+    color: var(--muted); padding: 0 24px 20px;
+  }
+
+  .wallet-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin: 0 20px 22px;
+    background: #000; color: #fff;
+    border: 1px solid rgba(255,255,255,.15);
+    font-family: inherit; font-size: 14px; font-weight: 600;
+    padding: 12px; border-radius: 999px;
+    cursor: pointer;
+  }
+  .wallet-icon {
+    width: 20px; height: 20px; border-radius: 5px; flex-shrink: 0;
+    background: linear-gradient(135deg, #ff3b30 0%, #ff9500 20%, #ffcc00 40%, #34c759 60%, #007aff 80%, #5856d6 100%);
+  }
+
+  /* Bottom nav */
+  .bottom-nav {
+    display: flex; justify-content: space-around;
+    padding: 10px 8px 16px;
+    border-top: 1px solid var(--border);
+  }
+  .nav-item {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    color: var(--muted); font-size: 10px; font-weight: 600;
+  }
+  .nav-item.active { color: var(--orange); }
+  .nav-item svg { display: block; }
+
+  .preview-note {
+    max-width: 390px; width: 100%;
+    text-align: center; font-size: 12px; color: var(--muted);
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="screen">
+
+  <div class="status-bar">
+    <span>10:30</span>
+    <div class="status-icons">
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1" opacity=".35"/></svg>
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 11.2 1.4 4.6C4 1.7 12 1.7 14.6 4.6L8 11.2zM3.5 3 8 7.5 12.5 3a8.6 8.6 0 0 0-9 0z"/></svg>
+      <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="1" y="1" width="20" height="10" rx="2.5" stroke="currentColor" stroke-opacity=".5"/><rect x="2.5" y="2.5" width="14" height="7" rx="1.2" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor" opacity=".5"/></svg>
+    </div>
+  </div>
+
+  <div class="page-header"><h1>Purchases</h1></div>
+
+  <div class="tabs">
+    <div class="tab active">Active Orders</div>
+    <div class="tab">Order History</div>
+  </div>
+
+  <div class="content">
+    <div class="ticket-card">
+
+      <div class="poster"></div>
+
+      <div class="ticket-info">
+        <h2>Obsession <span class="rating-badge">R</span></h2>
+        <div class="theater">Fresno Riverpark 19 &amp; IMAX, Auditorium 8</div>
+        <div class="showtime">Tue, Jun 9, 10:30 PM</div>
+        <div class="seat-pill">E11, E12</div>
+      </div>
+
+      <div class="perforation">
+        <div class="notch left"></div>
+        <div class="notch right"></div>
+      </div>
+
+      <div class="qr-wrap">
+        <div class="qr-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h55v55H0z"/><path stroke="#0d0d0d" d="M1 1.5h7m1 0h2m1 0h2m4 0h1m1 0h1m2 0h2m1 0h1m3 0h3m1 0h3m2 0h2m1 0h2m3 0h7M1 2.5h1m5 0h1m4 0h1m3 0h1m1 0h1m3 0h1m3 0h3m2 0h1m2 0h1m2 0h1m1 0h1m1 0h1m1 0h2m2 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m2 0h2m2 0h1m1 0h2m1 0h1m1 0h1m1 0h1m1 0h1m3 0h4m1 0h1m2 0h1m1 0h4m1 0h1m2 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h2m2 0h4m1 0h5m3 0h3m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m1 0h3m1 0h4m4 0h2m2 0h6m1 0h3m4 0h1m3 0h1m3 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m1 0h1m7 0h1m1 0h3m3 0h1m3 0h3m2 0h1m1 0h2m1 0h3m1 0h1m3 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 8.5h2m2 0h4m1 0h2m2 0h4m3 0h1m1 0h2m6 0h1m1 0h3m1 0h1M1 9.5h1m3 0h1m1 0h6m2 0h2m3 0h1m1 0h1m2 0h7m5 0h2m1 0h2m2 0h7m2 0h1M3 10.5h1m2 0h1m1 0h1m6 0h2m3 0h1m1 0h1m3 0h1m1 0h1m2 0h3m1 0h1m1 0h1m1 0h1m2 0h3m1 0h2m1 0h1m2 0h1M3 11.5h2m2 0h1m3 0h1m3 0h4m2 0h1m5 0h1m1 0h1m3 0h1m1 0h1m2 0h1m2 0h2m7 0h1M1 12.5h3m1 0h1m3 0h4m2 0h1m4 0h2m1 0h2m6 0h2m1 0h2m2 0h2m1 0h1m1 0h4m5 0h2M1 13.5h2m1 0h2m1 0h1m2 0h1m1 0h3m2 0h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h2m2 0h5m1 0h1m1 0h1m1 0h3m3 0h1m1 0h3M2 14.5h2m4 0h2m1 0h1m3 0h1m6 0h1m1 0h5m2 0h4m2 0h3m2 0h1m1 0h2m2 0h2M1 15.5h1m2 0h4m1 0h1m4 0h5m1 0h1m1 0h2m2 0h2m1 0h2m2 0h6m2 0h1m5 0h4m1 0h2M2 16.5h2m1 0h1m2 0h1m1 0h1m1 0h4m2 0h2m3 0h4m1 0h1m1 0h3m1 0h1m3 0h2m1 0h1m1 0h1m1 0h1m2 0h1m3 0h1M1 17.5h2m3 0h5m1 0h2m3 0h3m1 0h2m4 0h1m4 0h4m1 0h2m2 0h1m3 0h2m1 0h2m1 0h1m1 0h1M1 18.5h1m1 0h3m2 0h1m3 0h1m3 0h1m2 0h1m1 0h1m3 0h2m3 0h3m1 0h2m1 0h2m1 0h1m2 0h1m1 0h2m5 0h1M1 19.5h2m2 0h1m1 0h2m1 0h4m3 0h3m1 0h3m2 0h1m1 0h2m3 0h1m1 0h1m1 0h1m2 0h3m1 0h1m2 0h1m1 0h2m1 0h1M5 20.5h1m4 0h1m2 0h1m1 0h1m2 0h1m1 0h1m2 0h4m1 0h4m2 0h1m3 0h2m1 0h1m1 0h1m1 0h2m3 0h1m1 0h1M3 21.5h2m2 0h1m1 0h4m1 0h4m8 0h2m1 0h1m1 0h1m1 0h1m3 0h3m2 0h4m2 0h2m1 0h1M8 22.5h2m3 0h1m3 0h2m1 0h1m4 0h1m2 0h1m2 0h3m1 0h1m1 0h2m1 0h1m3 0h2m6 0h1M1 23.5h1m4 0h2m3 0h1m1 0h5m2 0h1m1 0h1m1 0h1m3 0h3m1 0h2m1 0h3m2 0h1m1 0h1m2 0h5m3 0h1M3 24.5h2m1 0h1m2 0h3m1 0h3m4 0h3m3 0h1m1 0h2m1 0h2m3 0h2m1 0h4m1 0h1m3 0h1m2 0h2M4 25.5h6m1 0h1m1 0h2m2 0h3m1 0h1m3 0h7m5 0h1m2 0h1m3 0h8m1 0h1M1 26.5h1m2 0h2m3 0h1m1 0h2m1 0h4m1 0h1m2 0h1m1 0h2m3 0h2m1 0h2m1 0h1m1 0h3m4 0h2m3 0h1m1 0h2M1 27.5h1m2 0h2m1 0h1m1 0h1m1 0h1m2 0h3m2 0h1m1 0h1m3 0h1m1 0h1m1 0h1m2 0h2m1 0h4m6 0h1m1 0h1m1 0h2m2 0h1M2 28.5h4m3 0h5m1 0h2m1 0h1m4 0h1m1 0h1m3 0h1m1 0h2m1 0h1m3 0h2m1 0h1m1 0h1m1 0h1m3 0h1m1 0h3M1 29.5h2m2 0h5m1 0h1m1 0h1m1 0h1m1 0h6m2 0h5m1 0h2m1 0h1m2 0h1m1 0h1m2 0h2m1 0h5m3 0h1M1 30.5h1m1 0h3m3 0h3m1 0h1m1 0h1m2 0h2m1 0h2m2 0h6m2 0h1m3 0h2m4 0h2m1 0h1M1 31.5h3m1 0h1m1 0h2m4 0h1m2 0h2m1 0h1m2 0h1m1 0h2m1 0h1m1 0h2m3 0h5m1 0h1m1 0h3m2 0h3m3 0h1M1 32.5h1m2 0h2m2 0h2m1 0h3m1 0h6m2 0h1m3 0h4m1 0h1m1 0h2m3 0h1m1 0h3m3 0h1m1 0h1m1 0h1M1 33.5h2m2 0h1m1 0h4m2 0h1m2 0h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h1m1 0h1m1 0h1m1 0h3m2 0h1m1 0h6m1 0h2M1 34.5h2m1 0h1m1 0h1m1 0h1m7 0h1m1 0h2m1 0h1m3 0h1m1 0h1m1 0h1m3 0h1m1 0h3m1 0h1m4 0h1m1 0h1m1 0h3M3 35.5h1m1 0h1m1 0h3m1 0h1m2 0h3m1 0h1m2 0h1m2 0h1m1 0h1m2 0h1m3 0h1m1 0h4m1 0h1m3 0h1m1 0h2m2 0h4M1 36.5h3m1 0h1m2 0h1m1 0h1m2 0h1m1 0h3m1 0h2m1 0h3m4 0h4m1 0h1m3 0h2m1 0h3m2 0h1m3 0h4M2 37.5h2m1 0h4m1 0h1m1 0h2m3 0h3m1 0h2m1 0h3m2 0h2m4 0h1m2 0h2m1 0h1m1 0h1m1 0h1m2 0h2m1 0h1m1 0h1M3 38.5h4m1 0h1m1 0h10m1 0h1m3 0h3m1 0h2m1 0h3m2 0h1m3 0h1m1 0h1m2 0h1m1 0h3m1 0h1M7 39.5h1m1 0h2m1 0h1m4 0h2m2 0h4m4 0h1m2 0h1m2 0h1m1 0h1m2 0h3m1 0h3m1 0h1m1 0h4M1 40.5h4m3 0h6m3 0h3m1 0h3m1 0h1m2 0h4m4 0h1m2 0h1m1 0h3m3 0h2m2 0h3M1 41.5h1m1 0h1m3 0h3m1 0h1m2 0h1m2 0h2m1 0h1m4 0h1m1 0h1m2 0h4m4 0h2m1 0h2m2 0h1m1 0h1m1 0h3m1 0h1M1 42.5h1m3 0h2m1 0h1m2 0h2m1 0h1m4 0h3m5 0h1m1 0h1m2 0h4m2 0h2m3 0h2m1 0h2m1 0h2m1 0h1M1 43.5h2m1 0h5m1 0h3m1 0h1m2 0h3m1 0h1m2 0h1m1 0h5m2 0h1m1 0h1m1 0h3m2 0h1m1 0h1m2 0h2m3 0h2M2 44.5h2m4 0h1m1 0h2m1 0h1m2 0h1m1 0h1m3 0h2m3 0h2m2 0h2m1 0h1m2 0h1m1 0h4m2 0h5m3 0h1M4 45.5h1m2 0h1m1 0h1m1 0h2m1 0h1m4 0h1m1 0h1m1 0h9m1 0h1m1 0h2m5 0h1m1 0h6m1 0h1m1 0h1M9 46.5h4m2 0h1m2 0h1m2 0h1m3 0h1m3 0h1m1 0h1m1 0h4m2 0h1m2 0h1m2 0h1m3 0h1m1 0h2M1 47.5h7m1 0h1m1 0h2m1 0h1m1 0h4m1 0h1m3 0h1m1 0h1m1 0h1m3 0h4m3 0h1m3 0h2m1 0h1m1 0h1m3 0h1M1 48.5h1m5 0h1m2 0h1m2 0h1m2 0h1m4 0h2m1 0h2m3 0h1m1 0h2m1 0h3m2 0h3m3 0h1m3 0h3m1 0h1M1 49.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h3m3 0h1m1 0h2m1 0h5m5 0h1m1 0h1m1 0h2m1 0h2m1 0h5m3 0h1M1 50.5h1m1 0h3m1 0h1m2 0h1m1 0h3m2 0h2m1 0h1m4 0h2m1 0h2m5 0h1m1 0h1m1 0h3m1 0h1m1 0h6M1 51.5h1m1 0h3m1 0h1m2 0h1m2 0h2m2 0h3m1 0h1m1 0h3m2 0h1m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h1m3 0h5m1 0h2M1 52.5h1m5 0h1m6 0h1m5 0h2m1 0h2m1 0h5m1 0h1m2 0h1m3 0h8m1 0h1m1 0h1m1 0h1M1 53.5h7m1 0h2m2 0h4m1 0h1m1 0h3m1 0h4m3 0h1m8 0h3m1 0h1m3 0h1m1 0h2"/></svg>
+        </div>
+      </div>
+
+      <p class="ticket-note">Proceed directly to the ticket taker.<br>No paper ticket required.</p>
+
+      <button class="wallet-btn">
+        <span class="wallet-icon"></span>
+        Add to Apple Wallet
+      </button>
+
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="7" y1="3" x2="7" y2="21"/><line x1="17" y1="3" x2="17" y2="21"/><line x1="2" y1="8" x2="7" y2="8"/><line x1="2" y1="16" x2="7" y2="16"/><line x1="17" y1="8" x2="22" y2="8"/><line x1="17" y1="16" x2="22" y2="16"/></svg>
+      <span>Movies</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Theatres</span>
+    </div>
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="12" y1="6" x2="12" y2="18" stroke-dasharray="2 2"/></svg>
+      <span>Purchases</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 12.2a2 2 0 0 1-2 1.8H8.5a2 2 0 0 1-2-1.8L5 8z"/><path d="M4 8l1-3h14l1 3"/><line x1="9" y1="8" x2="10" y2="21"/><line x1="15" y1="8" x2="14" y2="21"/></svg>
+      <span>Food &amp; Drink</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <span>My Rewards</span>
+    </div>
+  </nav>
+
+</div>
+
+<p class="preview-note">UI mockup with sample data — generated for design/dev preview, not a valid theater pass.</p>
+
+</body>
+</html>
